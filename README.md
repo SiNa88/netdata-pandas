@@ -7,7 +7,7 @@
 
 ## Install
 
-`pip install netdata-pandas`
+`pip3 install netdata-pandas`
 
 ## Documentation
 
@@ -20,7 +20,7 @@ Get some data into a pandas dataframe.
 ```python
 from netdata_pandas.data import get_data
 
-df = get_data('london.my-netdata.io', ['system.cpu','system.load'], after=-60, before=0)
+df = get_data('0.0.0.0:19999', ['system.cpu','system.load'], after=-60, before=0)
 print(df.shape)
 print(df.head())
 ```
@@ -64,7 +64,7 @@ An alternative way to call `get_data()` is to define what hosts and charts you w
 ```python
 # define list of charts for each host you want data for
 host_charts_dict = {
-    "london.my-netdata.io" : ['system.io','system.ip'],
+    "0.0.0.0:19999" : ['system.io','system.ip'],
     "newyork.my-netdata.io" : ['system.io','system.net'],
 }
 df = get_data(host_charts_dict=host_charts_dict, host_prefix=True)
